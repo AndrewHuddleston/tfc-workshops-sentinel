@@ -10,8 +10,6 @@ import "tfplan-functions" as plan
 
 ### List of mandatory tags ###
 mandatory_tags = [
-  "Billable",
-  "Department",
 ]
 
 # Get all Azure VMs
@@ -24,5 +22,5 @@ violatingAzureVMs = plan.filter_attribute_not_contains_list(allAzureVMs,
 
 #Main rule
 main = rule {
-  length(violatingAzureVMs["messages"]) is 1
+  length(violatingAzureVMs["messages"]) is 0
 }
